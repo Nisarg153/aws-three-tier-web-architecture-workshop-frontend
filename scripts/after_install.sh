@@ -1,8 +1,9 @@
 #!/bin/bash
+
 echo "📦 Setting up frontend files..."
 
-# Make sure target directory exists
+# Create the web directory
 sudo mkdir -p /home/ec2-user/web
 
-# Deployment archive should already be in place by CodeDeploy
-echo "✅ Frontend files ready."
+# Copy files from build artifact (already done by CodeDeploy)
+echo "✅ Frontend files placed in /home/ec2-user/web"
