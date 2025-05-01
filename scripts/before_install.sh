@@ -13,8 +13,6 @@ else
     echo "✅ NGINX is already installed."
 fi
 
-# Stop NGINX if running
-sudo systemctl stop nginx || true
 
 # Remove old frontend files
 sudo rm -rf /home/ec2-user/web
