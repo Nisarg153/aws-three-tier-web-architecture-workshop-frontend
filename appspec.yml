@@ -8,6 +8,10 @@ files:
   - source: nginx.conf
     destination: /etc/nginx/
 
+  - source: scripts
+    destination: /home/ec2-user/scripts
+
+
 hooks:
   BeforeInstall:
     - location: scripts/before_install.sh
