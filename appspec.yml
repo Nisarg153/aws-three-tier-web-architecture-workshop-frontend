@@ -9,7 +9,7 @@ files:
     destination: /etc/nginx/
 
   - source: scripts
-    destination: /home/ec2-user/scripts
+    destination: /home/ec2-user/web/scripts
 
 
 hooks:
