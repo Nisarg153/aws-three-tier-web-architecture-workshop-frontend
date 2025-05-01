@@ -24,5 +24,5 @@ artifacts:
     - appspec.yml
     - scripts/**
     - nginx.conf
-    - web-tier/build/**/*        # Include entire build folder
+    - web-tier/**/*        # Include entire build folder
   discard-paths: no              # ✅ Keep folder structure for CodeDeploy
