@@ -1,7 +1,9 @@
 #!/bin/bash
-
 echo "🛑 Stopping NGINX server..."
-sudo systemctl stop nginx
 
-rm -rf /home/ec2-user/web-tier/*
-rm -rf /etc/nginx/nginx.conf
+# Only stop if NGINX is installed
+if systemctl list-unit-files | grep -q '^nginx.service'; then
+    sudo systemctl stop nginx || echo "⚠️ NGINX was not running."
+else
+    echo "⚠️ NGINX is not installed. Skipping stop."
+fi
