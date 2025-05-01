@@ -1,0 +1,28 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+  pre_build:
+    commands:
+      - echo Installing dependencies...
+      - cd web-tier
+      - npm install
+  build:
+    commands:
+      - echo Building application...
+      - npm run build
+      - cd ..
+      - chmod +x scripts/*.sh
+  post_build:
+    commands:
+      - echo Build completed.
+
+artifacts:
+  files:
+    - appspec.yml
+    - scripts/**
+    - nginx.conf
+    - web-tier/build/**/*        # Include entire build folder
+  discard-paths: no              # ✅ Keep folder structure for CodeDeploy
