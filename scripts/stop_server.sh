@@ -2,9 +2,10 @@
 
 echo "🛑 Stopping NGINX server..."
 
-if systemctl list-units --type=service | grep -q nginx; then
-    sudo systemctl stop nginx
-    echo "✅ NGINX stopped."
+# Check if the nginx service is installed (unit file exists)
+if systemctl list-unit-files | grep -q '^nginx.service'; then
+    echo "✅ NGINX service found. Attempting to stop..."
+    sudo systemctl stop nginx || echo "⚠️ NGINX was not running."
 else
-    echo "⚠️ NGINX is not installed or not running. Skipping stop."
+    echo "⚠️ NGINX is not installed. Skipping stop."
 fi
