@@ -1,9 +1,19 @@
 #!/bin/bash
 
-echo "🧹 Cleaning up previous frontend deployment..."
-
+echo "🧼 Cleaning up previous frontend deployment..."
 # Stop NGINX if running
 sudo systemctl stop nginx || true
 
-# Remove previous files
+# Install NGINX if not installed
+if ! command -v nginx &> /dev/null
+then
+    echo "🔧 Installing NGINX..."
+    sudo yum update -y
+    sudo amazon-linux-extras enable nginx1
+    sudo yum install -y nginx
+else
+    echo "✅ NGINX is already installed."
+fi
+
+# Remove old frontend files
 sudo rm -rf /home/ec2-user/web
