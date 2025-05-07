@@ -12,7 +12,7 @@ files:
     destination: /home/ec2-user/web/scripts
 
 permissions:
-  - object: /home/ec2-user/web-tier
+  - object: /home/ec2-user/web
     pattern: "**"
     owner: ec2-user
     group: ec2-user
