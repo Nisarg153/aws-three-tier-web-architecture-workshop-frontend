@@ -25,6 +25,6 @@ sudo chmod -R 755 /home/ec2-user/web
 
 # Deploy nginx.conf to /etc/nginx
 echo "⚙️ Deploying nginx.conf to /etc/nginx..."
-sudo cp nginx.conf /etc/nginx/nginx.conf
+sudo cp /home/ec2-user/nginx/nginx.conf /etc/nginx/nginx.conf
 
 echo "✅ After-install steps completed successfully."

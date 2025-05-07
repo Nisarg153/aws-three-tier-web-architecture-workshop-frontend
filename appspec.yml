@@ -8,7 +8,6 @@ files:
   - source: nginx.conf
     destination: /home/ec2-user/nginx
 
-
   - source: scripts
     destination: /home/ec2-user/web/scripts
 
