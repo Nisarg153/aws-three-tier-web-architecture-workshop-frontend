@@ -7,9 +7,16 @@ files:
 
   - source: nginx.conf
     destination: /etc/nginx/
+    overwrite: true
 
   - source: scripts
     destination: /home/ec2-user/web/scripts
+
+permissions:
+  - object: /home/ec2-user/web-tier
+    pattern: "**"
+    owner: ec2-user
+    group: ec2-user
 
 
 hooks:
